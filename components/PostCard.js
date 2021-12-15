@@ -3,6 +3,7 @@ export default function PostCard({post}) {
     <div>
       {post.title}
       {post.excerpt}
+
     </div> 
   )
 }
