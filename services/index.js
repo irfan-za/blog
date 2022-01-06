@@ -56,5 +56,39 @@ export const getRecentPosts= async()=>{
   `
 
   const result= await request(graphqlApi,query)
-  return result.posts
+  return result.posts;
+}
+
+
+export const getSimiliarPosts= async()=>{
+  const query = gql`
+  query getPostDetails($slug: String!, $categories:[String!]){
+    posts(
+      where : {slug_not: $slug, AND : {categories_some: {slug_in : $categories}}}
+      last :3
+    ) {
+      title
+      featuredImage{
+        url
+      }
+      createdAt
+      slug
+    }
+  }
+  `
+  const result= await request(graphqlApi,query)
+  return result.posts;
+}
+
+export const getCategories= async()=>{
+  const query = gql`
+  query getCategories{
+    categories{
+      name
+      slug
+    }
+  }
+  `
+  const result= await request(graphqlApi,query)
+  return result.categories;
 }
