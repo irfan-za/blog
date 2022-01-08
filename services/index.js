@@ -113,7 +113,7 @@ export const getSimiliarPosts= async()=>{
     }
   }
   `
-  const result= await request(graphqlApi,query)
+  const result= await request(graphqlApi,query, {categories, slug})
   return result.posts;
 }
 
