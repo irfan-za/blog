@@ -176,7 +176,7 @@ export const getFeaturedPosts = async () => {
     }   
   `;
 
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlApi, query);
 
   return result.posts;
 };

@@ -1,6 +1,6 @@
 import moment from "moment"
 import Link from "next/link"
-import { postcss } from "tailwindcss"
+
 
 export default function PostCard({post}) {
   console.log(post)
