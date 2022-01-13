@@ -31,7 +31,7 @@ const PostWidget = ({ categories, slug }) => {
               layout="fill"
               objectFit="cover"
               className="rounded-full"
-              quality={90}
+              quality={100}
               src={post.featuredImage.url}
             />
           </div>

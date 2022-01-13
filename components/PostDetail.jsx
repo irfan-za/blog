@@ -51,7 +51,7 @@ const PostDetail = ({ post }) => {
             alt=""
             layout="fill"
             objectFit="cover"
-            quality={90}
+            quality={100}
             className="shadow-lg rounded-t-lg lg:rounded-lg"
           />
         </div>
