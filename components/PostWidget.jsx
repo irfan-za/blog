@@ -3,7 +3,6 @@ import Image from 'next/image';
 import moment from 'moment';
 import Link from 'next/link';
 
-import { grpahCMSImageLoader } from '../util';
 import { getSimilarPosts, getRecentPosts } from '../services';
 
 const PostWidget = ({ categories, slug }) => {
@@ -26,14 +25,13 @@ const PostWidget = ({ categories, slug }) => {
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">{slug ? 'Related Posts' : 'Recent Posts'}</h3>
       {relatedPosts.map((post, index) => (
         <div key={index} className="flex items-center w-full mb-4">
-          <div className="w-16 flex-none">
+          <div className="w-16 h-16 rounded-full relative">
             <Image
-              loader={grpahCMSImageLoader}
               alt={post.title}
-              height="60px"
-              width="60px"
-              unoptimized
-              className="align-middle rounded-full"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+              quality={100}
               src={post.featuredImage.url}
             />
           </div>

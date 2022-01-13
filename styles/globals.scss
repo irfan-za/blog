@@ -16,7 +16,7 @@ body {
     height: 100vh;
     //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
     // background: #D3D3D3;
-    background-image: linear-gradient(-45deg, #73d2de, #d81159);
+    background-image: linear-gradient(-30deg, #1b2028, #9099a7);
     position: fixed;
     left: 0;
     top: 0;
@@ -65,14 +65,14 @@ a {
 .glass {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(61, 60, 60, 0.55);
+  background-color: rgba(61, 60, 60, 0.65);
   border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  border: 1px solid rgba(91, 92, 94, 0.4);
 }
 .light-glass {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.76);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  border: 1px solid rgba(209, 213, 219, 0.4);
 }

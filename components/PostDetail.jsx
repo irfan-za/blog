@@ -2,8 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import moment from 'moment';
 
-import { grpahCMSImageLoader } from '../util';
-
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
@@ -31,12 +29,12 @@ const PostDetail = ({ post }) => {
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
-          <img
+          <Image
             key={index}
+            src={obj.src}
             alt={obj.title}
             height={obj.height}
             width={obj.width}
-            src={obj.src}
           />
         );
       default:
@@ -47,10 +45,8 @@ const PostDetail = ({ post }) => {
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-        <div className="relative overflow-hidden shadow-md h-full w-full mb-6">
+        <div className="relative overflow-hidden shadow-md w-full h-60 lg:h-96 mb-6">
           <Image
-          {/* error */}
-            // loader={grpahCMSImageLoader}
             src={post.featuredImage.url}
             alt=""
             layout="fill"
@@ -58,17 +54,16 @@ const PostDetail = ({ post }) => {
             quality={100}
             className="shadow-lg rounded-t-lg lg:rounded-lg"
           />
-          {/* <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" /> */}
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
-              <img
+              <Image
                 alt={post.author.name}
+                src={post.author.photo.url}
                 height="30px"
                 width="30px"
                 className="align-middle rounded-full"
-                src={post.author.photo.url}
               />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
