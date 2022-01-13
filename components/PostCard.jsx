@@ -3,8 +3,6 @@ import Image from 'next/image';
 import moment from 'moment';
 import Link from 'next/link';
 
-import { grpahCMSImageLoader } from '../util';
-
 const PostCard = ({ post }) => (
   <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
     <div className="relative shadow-md inline-block w-full h-60 lg:h-80 mb-6">
@@ -24,8 +22,6 @@ const PostCard = ({ post }) => (
     <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
       <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
         <Image
-          unoptimized
-          loader={grpahCMSImageLoader}
           alt={post.author.name}
           height="30px"
           width="30px"
