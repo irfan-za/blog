@@ -12,7 +12,7 @@ const PostCard = ({ post }) => (
         className="shadow-lg rounded-t-lg lg:rounded-lg"
         layout="fill"
         objectFit="cover"
-        quality={100}
+        quality={90}
       />
     </div>
 
