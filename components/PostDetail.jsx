@@ -7,6 +7,18 @@ const PostDetail = ({ post }) => {
     let modifiedText = text;
 
     if (obj) {
+      if (obj.type === 'list-item') {
+        obj.children.map((item, i) => {
+          item.children.map((childItem, j) => {
+            if (childItem.bold) {
+              modifiedText = (<b key={j}>{childItem.text}</b>);
+            } else {
+              modifiedText = childItem.text;
+            }
+          });
+        });
+      }
+
       if (obj.bold) {
         modifiedText = (<b key={index}>{text}</b>);
       }
@@ -22,11 +34,13 @@ const PostDetail = ({ post }) => {
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+      case 'bulleted-list':
+        return <ul key={index}><li>{modifiedText.map((item, i) => <p key={i} className="mb-0">{item}</p>)}</li></ul>;
       case 'image':
         return (
           <Image
@@ -41,7 +55,6 @@ const PostDetail = ({ post }) => {
         return modifiedText;
     }
   };
-
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
@@ -65,7 +78,7 @@ const PostDetail = ({ post }) => {
                 width="30px"
                 className="align-middle rounded-full"
               />
-              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
+              <p className="inline align-middle text-gray-700 ml-2 font-medium">{post.author.name}</p>
             </div>
             <div className="font-medium text-gray-700">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +87,7 @@ const PostDetail = ({ post }) => {
               <span className="align-middle text-sm">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+          <h1 className="mb-8 text-2xl lg:text-3xl font-semibold">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
