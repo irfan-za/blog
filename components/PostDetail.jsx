@@ -8,7 +8,9 @@ const PostDetail = ({ post }) => {
 
     if (obj) {
       if (obj.type === 'list-item') {
-        obj.children.map((item, i) => {
+        // eslint-disable-next-line array-callback-return
+        obj.children.map((item) => {
+          // eslint-disable-next-line array-callback-return
           item.children.map((childItem, j) => {
             if (childItem.bold) {
               modifiedText = (<b key={j}>{childItem.text}</b>);
