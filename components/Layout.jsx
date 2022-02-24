@@ -15,6 +15,7 @@ export default function Layout(props) {
         <meta property="og:description" content={props.desc} />
         <meta property="og:url" content="https://z-blog.vercel.app" />
         <meta property="og:image:url" content={props.img} />
+        <meta property="og:image:secure_url" content={props.img} />
       </Head>
       <Header />
       {children}
