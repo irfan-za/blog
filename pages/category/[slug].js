@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import { getCategories, getCategoryPost } from '../../services';
-import { PostCard, Categories, Loader } from '../../components';
+import { PostCard, Categories, Loader, Layout } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -12,20 +12,26 @@ const CategoryPost = ({ posts }) => {
   }
 
   return (
-    <div className="container mx-auto px-3 lg:px-10 mb-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="col-span-1 lg:col-span-8">
-          {posts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
-          ))}
-        </div>
-        <div className="col-span-1 lg:col-span-4">
-          <div className="relative lg:sticky top-8">
-            <Categories />
+    <Layout
+      title={`Kategori ${router.query.slug} | Z Blog`}
+      desc={`Berbagai blog dari kategori ${router.query.slug} | Z blog`}
+      img="/z.png"
+    >
+      <div className="container mx-auto px-3 lg:px-10 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="col-span-1 lg:col-span-8">
+            {posts.map((post, index) => (
+              <PostCard key={index} post={post.node} />
+            ))}
+          </div>
+          <div className="col-span-1 lg:col-span-4">
+            <div className="relative lg:sticky top-8">
+              <Categories />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 export default CategoryPost;
