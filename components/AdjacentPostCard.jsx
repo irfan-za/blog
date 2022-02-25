@@ -9,7 +9,7 @@ const AdjacentPostCard = ({ post, position }) => (
       <Image
         src={post.featuredImage.url}
         alt={post.title}
-        className="shadow-lg rounded-t-lg lg:rounded-lg"
+        className="shadow-lg rounded-lg"
         layout="fill"
         objectFit="cover"
         quality={100}
