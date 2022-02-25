@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import moment from 'moment';
@@ -36,8 +37,8 @@ const PostWidget = ({ categories, slug }) => {
             />
           </div>
           <div className="flex-grow ml-4">
-            <p className="text-gray-500 text-xs">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
-            <Link href={`/post/${post.slug}`} key={index}>{post.title}</Link>
+            <p className="text-gray-500 text-xs mb-0">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
+            <Link href={`/post/${post.slug}`} key={index}><a className="text-sm md:text-base lg:text-sm overflow-hidden line-clamp-2 text-ellipsis block max-w-1 sm:max-w-2 md:max-w-3 lg:max-w-4">{post.title}</a></Link>
           </div>
         </div>
       ))}
