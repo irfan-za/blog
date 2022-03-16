@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> */}
+          <meta name="google-site-verification" content="rrkxsBGOy6LOHk2HJkrunegA10AR1-RukzdtH5obulA" />
         </Head>
         <body>
           <Main />
