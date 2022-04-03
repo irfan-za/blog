@@ -7,7 +7,7 @@ export default function Home({ posts }) {
     <Layout
       title="Z Blog"
       desc="Sebuah blog untuk menuliskan berbagai pemikiran."
-      img="/z.png"
+      img="https://z-blog.vercel.app/z.png"
     >
       <div className="container mx-auto px-3 lg:px-10 mb-8">
         <FeaturedPosts />
