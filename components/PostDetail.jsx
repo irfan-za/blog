@@ -35,12 +35,16 @@ const PostDetail = ({ post }) => {
     }
 
     switch (type) {
+      case 'heading-one':
+        return <h3 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+      case 'heading-two':
+        return <h4 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'heading-three':
         return <h3 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-      case 'paragraph':
-        return <p key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
         return <h4 key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+      case 'paragraph':
+        return <p key={index}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'bulleted-list':
         return <ul key={index}><li>{modifiedText.map((item, i) => <p key={i} className="mb-0">{item}</p>)}</li></ul>;
       case 'image':
