@@ -7,6 +7,7 @@ import { AdjacentPosts } from '../../sections';
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
+  console.log('POST ==>', post);
 
   if (router.isFallback) {
     return <Loader />;

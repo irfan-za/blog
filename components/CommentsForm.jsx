@@ -5,14 +5,14 @@ const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
+  const [formData, setFormData] = useState({ name: undefined, email: undefined, comment: undefined, storeData: false });
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
-      name: window.localStorage.getItem('name'),
-      email: window.localStorage.getItem('email'),
-      storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
+      name: window.localStorage.getItem('name') === null ? undefined : window.localStorage.getItem('name'),
+      email: window.localStorage.getItem('email') === null ? undefined : window.localStorage.getItem('email'),
+      storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email') === null ? undefined : window.localStorage.getItem('email'),
     };
     setFormData(initalFormData);
   }, []);
