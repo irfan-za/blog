@@ -18,7 +18,7 @@ const PostCard = ({ post }) => (
       </Link>
     </div>
 
-    <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-blue-600 text-lg md:text-2xl lg:text-3xl font-semibold">
+    <h1 className="transition duration-300 text-center mb-8 cursor-pointer hover:text-blue-600 text-lg md:text-2xl lg:text-3xl font-semibold">
       <Link href={`/post/${post.slug}`}>{post.title}</Link>
     </h1>
     <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
